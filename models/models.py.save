@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+
+class BootcampBootcamp(models.Model):
+    _name = 'bootcamp.bootcamp'
+
+    name = fields.Char('Nombre')
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    campo_boolean = fields.Boolean(string='Campo Boolean')
+    campo_integer = fields.Integer(string='Campo Integer', default=50)
+    campo_float = fields.Float(string='Campo Float')
+    campo_char = fields.Char(string='Campo Char')
+    campo_text = fields.Text(string='Campo Texto')
+    campo_selection = fields.Selection([('uno', 'Uno'), ('dos', 'Dos')], string='Campo Selection', default='dosy')
+    campo_html = fields.Html(string='Campo HTML')
+    campo_binary = fields.Binary(string='Campo Binary')
+    campo_date = fields.Date(string='Campo Date') #2023-03-16
+    campo_datetime = fields.Datetime(string='Campo Datetime') #2023-03-16 00:00:00

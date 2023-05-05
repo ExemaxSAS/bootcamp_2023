@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+   <data>
+
+     <record model="ir.ui.view" id="bootcamp_tree">
+        <field name="name">Bootcamp Tree</field>
+        <field name="model">bootcamp.bootcamp</field>
+        <field name="arch" type="xml">
+           <tree>
+              <field name="name" />
+           </tree>
+        </field>
+     </record>
+
+     <record model="ir.ui.view" id="bootcamp_form">
+        <field name="name">Bootcamp Form</field>
+        <field name="model">bootcamp.bootcamp</field>
+        <field name="arch" type="xml">
+           <form>
+             <header>
+                <button name="update_sale_order_note" type="object" string="Actualizar Nota" class="oe_highlight" />
+             </header>
+             <sheet>
+              <div class="oe_title">
+                <h1>
+                   <field name="name" default_focus="1" placeholder="Escriba aqui..." />
+                </h1>
+              </div>
+              <group>
+                <field name="user_id" />
+                <field name="sale_order" domain="[('user_id', '=', user_id)]" />
+                <field name="note" />
+              </group>
+             </sheet>
+           </form>
+        </field>
+     </record>
+
+     <!-- MENU -->
+
+     <record model="ir.actions.act_window" id="bootcamp_action">
+        <field name="name">Bootcamp Action</field>
+        <field name="res_model">bootcamp.bootcamp</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref=""/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Bootcamp
+            </p>
+        </field>
+     </record>
+
+     <menuitem
+      id="bootcamp_root"
+      name="Bootcamp"
+      groups="bootcamp.group_bootcamp"
+      sequence="70"
+      />
+
+      <menuitem
+      id="bootcamp_menu"
+      name="Bootcamp"
+      groups="bootcamp.group_bootcamp"
+      parent="bootcamp_root"
+      sequence="2"
+      />
+
+      <menuitem
+      id="bootcamp_tech"
+      name="Bootcamp Tech"
+      groups="bootcamp.group_bootcamp"
+      parent="sale.sale_order_menu"
+      action="bootcamp_action"
+      sequence="1"
+      />
+
+      <!-- REPORT -->
+      <report
+       id="partner_xlsx"
+       model="res.partner"
+       string="Imprimir XLSX"
+       report_type="xlsx"
+       name="bootcamp.reporte_excel"
+       file="res_partner"
+       attachment_use="False"
+      />
+
+   </data>
+</odoo>

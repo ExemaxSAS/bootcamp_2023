@@ -1,0 +1,15 @@
+<odoo>
+   <data>
+
+      <template id="bootcamp_website" name="Bootcamp Web">
+        <t t-call="website.layout">
+          <div id="wrap" class="oe_structure oe_empty">
+            <section>
+              <h1>Hola Bootcamp</h1>
+            </section>
+          </div>
+        </t>
+      </template>
+
+   </data>
+</odoo>
